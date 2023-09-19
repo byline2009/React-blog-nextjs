@@ -1,0 +1,32 @@
+@import "~bootstrap/scss/bootstrap";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Roboto";
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  .content-page {
+    background-color: aqua;
+  }
+}
+.navigation-header {
+  display: flex;
+  list-style-type: none;
+  li + li {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
