@@ -1,4 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
+@import "variables";
+@import "fonts";
+@import "houze-icon";
+
+@import "./pages/app.scss";
+
+@import "./components/button.scss";
+@import "../components/header/header-app.scss";
 
 html,
 body {
