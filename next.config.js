@@ -1,4 +1,11 @@
+// eslint-disable-next-line
+const envData = require("./next.env");
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  reactStrictMode: true,
+  publicRuntimeConfig: {
+    ...envData,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

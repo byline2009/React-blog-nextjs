@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/global.scss";
-import HeaderApp from "@/components/header/HeaderApp";
+import HeaderApp from "src/components/header/HeaderApp";
 
 export const metadata: Metadata = {
   title: "Create Blog App",
