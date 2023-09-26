@@ -40,19 +40,5 @@ export default function Blog() {
   } else {
     console.log("check", blogs);
   }
-  return (
-    <main className="main-layout">
-      <div className="content-page">
-        <div className="app-page">
-          {/* {(blogs.results as IBlog[]).map((item, index) => {
-            return (
-              <h4 className="blog-name" key={index}>
-                {item.title}
-              </h4>
-            );
-          })} */}
-        </div>
-      </div>
-    </main>
-  );
+  return <div>Blogs</div>;
 }

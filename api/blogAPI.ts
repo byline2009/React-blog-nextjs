@@ -1,28 +1,35 @@
 import env from "@config/env";
 import qs from "query-string";
 
-// const { API_URL } = process.env
-const { API_URL } = env;
+const { API_URL } = process.env;
+// const { API_URL } = env;
 // console.log(API_URL)
 
 const getBlogList = async (
   path: string,
   params?: {
-    limit?: number;
+    limit?: string;
     is_hero?: boolean;
     is_most_read?: boolean;
     is_market_information?: boolean;
     title?: any;
   }
 ) => {
-  // console.log(API_URL)
-  let apiString = `${API_URL}${path}`;
   const newQueryParam = {
     ...(params && params.limit && { limit: params.limit }),
   };
-  const res = await fetch(`${API_URL}${path}${newQueryParam}`, {
-    method: "GET",
-  });
+
+  console.log(
+    "url",
+    `${API_URL}${path}?${new URLSearchParams(newQueryParam).toString()}`
+  );
+  const res = await fetch(
+    `${API_URL}${path}?${new URLSearchParams(newQueryParam).toString()}`,
+    {
+      method: "GET",
+    }
+  ).then((res) => res.json());
+  //   console.log("result", res);
   const data = res;
   return data;
 };
