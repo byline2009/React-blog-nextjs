@@ -24,13 +24,13 @@
         "./public/*"
       ],
       "@components/*": [
-        "./components/*"
+        "./src//components/*"
       ],
       "@styles/*": [
         "./styles/*"
       ],
       "@config/*": [
-        "./config/*"
+        "./src/config/*"
       ],
       "@helpers/*": [
         "./helpers/*"
@@ -42,11 +42,9 @@
         "./api/*"
       ]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{
+      "name": "next"
+    }]
   },
   "include": [
     "next-env.d.ts",

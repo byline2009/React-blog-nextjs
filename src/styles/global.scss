@@ -7,6 +7,7 @@
 
 @import "./components/button.scss";
 @import "../components/header/header-app.scss";
+@import "../components/MobileMenu/mobile-menu.scss";
 
 html,
 body {
@@ -22,6 +23,13 @@ body {
 }
 img {
   display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
 }
 
 .main-layout {

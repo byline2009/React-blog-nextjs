@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Link from "next/link";
 import { menuCategory } from "../../../config/contants";
 import { usePathname } from "next/navigation";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 type HeaderProps = {
   toggleMenu: () => void;
@@ -17,6 +17,7 @@ const HeaderApp: FC<HeaderProps> = ({ toggleMenu, isOpen }) => {
   const [isSticky, setisSticky] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [searchVal, setSearchVal] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     setIsOpenMenu(isOpen);
@@ -34,7 +35,7 @@ const HeaderApp: FC<HeaderProps> = ({ toggleMenu, isOpen }) => {
   };
   const handleSearch = (e: any) => {
     if (e.key === "Enter") {
-      Router.push(`/tim-kiem?q=${searchVal}`);
+      router.push(`/tim-kiem?q=${searchVal}`);
       setIsSearch(false);
       setSearchVal("");
     }
