@@ -39,7 +39,7 @@
         "./redux/*"
       ],
       "@api/*": [
-        "./api/*"
+        "./src/api/*"
       ]
     },
     "plugins": [{

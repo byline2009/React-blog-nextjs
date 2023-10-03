@@ -1,9 +1,5 @@
-import env from "@config/env";
-import qs from "query-string";
 
-const { API_URL } = process.env;
-// const { API_URL } = env;
-// console.log(API_URL)
+const { API_URL } = process.env
 
 const getBlogList = async (
   path: string,
@@ -17,6 +13,8 @@ const getBlogList = async (
 ) => {
   const newQueryParam = {
     ...(params && params.limit && { limit: params.limit }),
+    ...(params && params.is_hero!= undefined && { is_hero: params.is_hero.toString() }),
+    ...(params && params.is_most_read!= undefined && { is_most_read: params.is_most_read.toString() }),
   };
 
   console.log(
@@ -29,7 +27,6 @@ const getBlogList = async (
       method: "GET",
     }
   ).then((res) => res.json());
-  //   console.log("result", res);
   const data = res;
   return data;
 };
