@@ -48,11 +48,12 @@ const HeaderApp: FC<HeaderProps> = ({ toggleMenu, isOpen }) => {
     //   ? header.classList.add('is-sticky')
     //   : header.classList.remove('is-sticky')
     const scrollTop = window.scrollY;
+    console.log(" window.scrollY", window.scrollY);
     scrollTop > 1 ? setisSticky(true) : setisSticky(false);
   };
 
   return (
-    <div className="header">
+    <div className={`header ${isSticky && "is-sticky"}`}>
       <div className="header-top">
         <div className="logo-group">
           <button
@@ -89,11 +90,6 @@ const HeaderApp: FC<HeaderProps> = ({ toggleMenu, isOpen }) => {
       </div>
       <div className="header-bottom">
         <div className="navigation">
-          {/* <div className={`nav-item ${pathname === '/' && 'active'}`}>
-            <Link href={'/'}>
-              <a>Trang chủ</a>
-            </Link>
-          </div> */}
           {menuCategory.map((item, index) => (
             <div
               key={index}
