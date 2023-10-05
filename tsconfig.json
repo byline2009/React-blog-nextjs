@@ -24,7 +24,7 @@
         "./public/*"
       ],
       "@components/*": [
-        "./src//components/*"
+        "./src/components/*"
       ],
       "@styles/*": [
         "./styles/*"
