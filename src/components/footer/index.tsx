@@ -5,7 +5,7 @@ import { infoLink, companyLink, serviceLink } from "@config/constants";
 import Link from "next/link";
 
 const Footer: FC = () => {
-  const { APP_ENV } = process.env;
+  const { NEXT_PUBLIC_APP_ENV } = process.env;
   const str =
     "Houze đang cải thiện tính năng này để giúp bạn có một trải nghiệm sử dụng tốt hơn. Mong bạn thông cảm";
   return (

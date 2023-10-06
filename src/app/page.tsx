@@ -1,18 +1,22 @@
 "use client";
-
 import { getBlogList } from "@api/blogAPI";
+import ButtonAlert from "@components/button/ButtonAlert";
 import moment from "moment";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useSWR from "swr";
 
-const App = async () => {
-  // const topNewsData = await getBlogList("/blogs", { is_hero: true });
+const App = () => {
+  const [topNewsData, setTopNewsData] = useState([]);
+  const [responseBlogList, setResponseBlogList] = useState([]);
+  useEffect(() => {
+    getBlogList("/blogs", {
+      is_hero: true,
+    }).then((res) => {
+      if (res) setTopNewsData(res.results);
+    });
+  }, []);
 
-  // const responseBlogList = await getBlogList("/blogs", {
-  //   limit: "500",
-  //   is_hero: false,
-  //   is_most_read: false,
-  // });
   const formatTime = (time: any) => {
     const d = moment(time).format("D");
     const m = moment(time).format("M");
@@ -22,18 +26,18 @@ const App = async () => {
   return (
     <div className="home-page">
       <div className="top-news">
-        {/* {topNewsData &&
-          topNewsData.results.map((item: any, index: number) => (
+        {topNewsData &&
+          topNewsData.map((item: any, index: number) => (
             <Link href={`/blog/${item.slug}`} key={index}>
-              <a className="top-news-item">
+              <div className="top-news-item">
                 <img src={item.feature_image} alt="top-new" />
                 <div className="top-news-content">
                   <span>{formatTime(item.publish_time)}</span>
                   <h2>{item.title}</h2>
                 </div>
-              </a>
+              </div>
             </Link>
-          ))} */}
+          ))}
         <div className="document-receive">
           <div className="thumb">
             <img
@@ -46,14 +50,7 @@ const App = async () => {
               <i className="icon-arrow-download" />
               Nhận tài liệu
             </button> */}
-          <button
-            onClick={() =>
-              alert("Tính năng đang được xây dựng, mong bạn thông cảm")
-            }
-          >
-            <i className="icon-arrow-download" />
-            Nhận tài liệu
-          </button>
+          <ButtonAlert />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
-
-const { API_URL } = process.env
+"use server";
+const { NEXT_PUBLIC_API_URL } = process.env;
 
 const getBlogList = async (
   path: string,
@@ -13,22 +13,31 @@ const getBlogList = async (
 ) => {
   const newQueryParam = {
     ...(params && params.limit && { limit: params.limit }),
-    ...(params && params.is_hero!= undefined && { is_hero: params.is_hero.toString() }),
-    ...(params && params.is_most_read!= undefined && { is_most_read: params.is_most_read.toString() }),
+    ...(params &&
+      params.is_hero != undefined && { is_hero: params.is_hero.toString() }),
+    ...(params &&
+      params.is_most_read != undefined && {
+        is_most_read: params.is_most_read.toString(),
+      }),
   };
 
   console.log(
     "url",
-    `${API_URL}${path}?${new URLSearchParams(newQueryParam).toString()}`
+    `${NEXT_PUBLIC_API_URL}${path}?${new URLSearchParams(
+      newQueryParam
+    ).toString()}`
   );
   const res = await fetch(
-    `${API_URL}${path}?${new URLSearchParams(newQueryParam).toString()}`,
+    `${NEXT_PUBLIC_API_URL}${path}?${new URLSearchParams(
+      newQueryParam
+    ).toString()}`,
     {
       method: "GET",
     }
   ).then((res) => res.json());
-  const data = res;
-  return data;
+  console.log("res server", res);
+
+  return res;
 };
 
 // const getBlogDetail = async (path: string, slug: string) => {

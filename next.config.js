@@ -7,6 +7,9 @@ const nextConfig = {
   publicRuntimeConfig: {
     ...envData,
   },
+  experimental: {
+    serverActions: true,
+  },
 };
 
 module.exports = nextConfig;

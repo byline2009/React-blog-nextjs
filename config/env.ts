@@ -5,10 +5,9 @@ const { publicRuntimeConfig } = getConfig();
 
 const getNodeEnv = () => {
   return {
-    IS_DEV: publicRuntimeConfig.APP_ENV === "dev",
-    APP_ENV: publicRuntimeConfig.APP_ENV,
+    NEXT_PUBLIC_APP_ENV: publicRuntimeConfig.NEXT_PUBLIC_APP_ENV === "dev",
 
-    API_URL: publicRuntimeConfig.API_URL,
+    NEXT_PUBLIC_API_URL: publicRuntimeConfig.NEXT_PUBLIC_API_URL,
   };
 };
 const env = getNodeEnv();

@@ -48,7 +48,6 @@ const HeaderApp: FC<HeaderProps> = ({ toggleMenu, isOpen }) => {
     //   ? header.classList.add('is-sticky')
     //   : header.classList.remove('is-sticky')
     const scrollTop = window.scrollY;
-    console.log(" window.scrollY", window.scrollY);
     scrollTop > 1 ? setisSticky(true) : setisSticky(false);
   };
 
