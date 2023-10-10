@@ -35,7 +35,8 @@ const getBlogList = async (
       method: "GET",
     }
   ).then((res) => res.json());
-  console.log("res server", res);
+
+  // console.log("res server", res.results);
 
   return res;
 };
