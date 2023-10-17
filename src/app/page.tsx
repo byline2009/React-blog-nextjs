@@ -8,6 +8,7 @@ import useSWR from "swr";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { formatTime } from "src/until/helper";
 type IBlog = {
   id: string;
   title: string;
@@ -110,12 +111,6 @@ const App = () => {
     setFilterData(display);
   };
 
-  const formatTime = (time: any) => {
-    const d = moment(time).format("D");
-    const m = moment(time).format("M");
-    const y = moment(time).format("YYYY");
-    return `${d} Tháng ${m}, ${y}`;
-  };
   const settingTopnews = {
     dots: true,
     dotsClass: "slick-dots slick-top-news",
